@@ -43,7 +43,7 @@ public class Chord  {
          * @param nodo Nodo para el que se quieren calcular los vecinos
          * @return Array de los vecinos del nodo
          */
-        private Nodo[] calcularVecinos(Nodo nodo) {
+        public Nodo[] calcularVecinos(Nodo nodo) {
             Nodo[] vecinos = new Nodo[2];
             int indiceInicial = nodo.getIndice();
             int indiceFinal = (indiceInicial + 1) % numNodos;
@@ -58,7 +58,7 @@ public class Chord  {
          * @param nodo Nodo para el que se quiere calcular la tabla de rutas
          * @return Array de la tabla de rutas del nodo
          */
-        private Nodo[] calcularTablaRutas(Nodo nodo) {
+        public Nodo[] calcularTablaRutas(Nodo nodo) {
             Nodo[] tablaRutas = new Nodo[numNodos - 1];
             int indiceInicial = nodo.getIndice();
             int indice = 0;
@@ -121,6 +121,7 @@ public class Chord  {
             }
         }
 
+
         /**
          * Función para eliminar nodos del algoritmo de Chord
          *
@@ -139,6 +140,7 @@ public class Chord  {
             System.arraycopy(this.nodos, 0, nodosEliminados, 0, numNodos);
             Nodo[] nodosRestantes = new Nodo[this.numNodos];
             System.arraycopy(this.nodos, numNodos, nodosRestantes, 0, this.numNodos);
+
             this.nodos = nodosRestantes;
 
             // Establecer los vecinos iniciales
